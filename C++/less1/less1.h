@@ -6,9 +6,12 @@ class String
 {
 private:
 	char* str;
-	int length;
+	int length = 80;
 public:
 	String();
 	String(char*);
-	String(int size);
+	String(int );
+	String(const String& copyString); 
+	void Input();
+	void Output();
 };
