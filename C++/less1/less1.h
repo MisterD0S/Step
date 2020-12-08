@@ -2,16 +2,21 @@
 #include <iostream>
 #include <ctime>
 using namespace std;
-class String
+class Array
 {
 private:
-	char* str;
-	int length = 80;
+	int size;
+	int* Massiv;
 public:
-	String();
-	String(char*);
-	String(int );
-	String(const String& copyString); 
-	void Input();
-	void Output();
+	Array(int);
+	Array(int* );
+	Array(const Array&);
+	void InputMassiv();
+	void OutputMassiv();
+	void ChangeSize();
+	void Sort();
+	int MinElement();
+	int MaxElement();
+	~Array();
 };
+int MassivSize();
