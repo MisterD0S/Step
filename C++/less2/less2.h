@@ -1,19 +1,39 @@
 #pragma once
 #include <iostream>
 #include <ctime>
+#include <string>
 using namespace std;
-class NumberStorage
+class string1
 {
-private:
-	int* storage;
-	uint32_t elementsCount;
-	static uint32_t usedMemory;
-	static int countObjekt;
+private:    
+	
+	char* str;
+	int a;
 public:
-	static void SetNumber(uint32_t value = 0) { usedMemory = value; }
-	static uint32_t GetNumber() { return usedMemory; }
-	NumberStorage(uint32_t);
-	NumberStorage(const NumberStorage&);
-	void Output();
-	~NumberStorage();
+	string1() 
+	{ 
+		str = nullptr; 
+	}
+	 string1(const char* str) : str{ new char[strlen(str)+1] } 
+	{ 
+		strcpy_s(this->str, strlen(str)+1, str); 
+	}
+	string1(const string1& obj) : str{new char[strlen(obj.str)+1]} 
+	{
+		strcpy_s(this->str, strlen(obj.str)+1, obj.str);
+		cout << "CC" << endl;
+	}
+	~string1() 
+	{ 
+		if (str != nullptr) 
+		delete[]str; 
+	}
+
+	
+	int setA(int a);
+	int GetA() const;
+	void print(string1 str) const ;
+	void stringRead(const char* str);
+
+
 };

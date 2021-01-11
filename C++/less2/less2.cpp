@@ -1,36 +1,22 @@
 #include "less2.h"
-uint32_t NumberStorage::usedMemory = 0;
-int NumberStorage::countObjekt = 0;
-NumberStorage::NumberStorage(uint32_t _elementCount):
-	storage{ _elementCount == 0 ? NULL : new int[_elementCount] }, elementsCount{ _elementCount }
-{
-	uint32_t used = elementsCount * sizeof(int);
-	countObjekt++;
-	usedMemory += used;
-	cout << "Количетсво выделеной памяти в байтах: " << usedMemory << " в " << countObjekt << " блоках: " << endl;
-	for (uint32_t i = 0; i < elementsCount; ++i)
-		storage[i] = rand() % 10;
-	Output();
+
+void string1::print(string1 str) const {
+	cout << str.str;
+
 }
 
-NumberStorage::NumberStorage(const NumberStorage& copy):NumberStorage(copy.elementsCount)
-{
-	for (uint32_t i = 0; i < elementsCount; ++i)
-		storage[i] = copy.storage[i];
-	Output();
+int string1:: setA(int a) {
+	this->a = a;
+	return 0;
 }
 
-void NumberStorage::Output()
-{
-	cout << "Элементы " << countObjekt << "-го блока: ";
-	for (uint32_t i = 0; i < elementsCount; ++i)
-		cout << storage[i] << " ";
-	cout << endl;
+int string1::GetA() const {
+	return a;
 }
 
-NumberStorage::~NumberStorage()
-{
-	delete[] storage;
-	usedMemory -= elementsCount*sizeof(int);
-	cout << "Блок удалён. Количество памяти осталось: " << usedMemory << endl;
+void string1::stringRead(const char* str) {
+
+	this->str = new char[strlen(str)+1];
+	strcpy_s(this->str, strlen(str)+1, str);
+
 }

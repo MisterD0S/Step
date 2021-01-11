@@ -17,6 +17,6 @@ int main()
 	cout << "Максимальный элемент данного массива равен: " << Massiv1.MaxElement() << endl;
 	system("cls");
 	cout << "Матрица из массивов класса:" << endl;
-	Array* Matrix = new Array({ 5 }, 4, 3, 2, 1);
+	Array* Matrix = new Array( 5 , 4, 3, 2, 1);
 	return 0;
 }
