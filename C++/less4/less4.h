@@ -25,13 +25,25 @@ private:
 	int MaxQueueLenght;
 	int QueueLength;
 public:
-	Queue();
+	Queue(int=10);
 	~Queue();
 	void Push(int c);
-	int Pop();
+	bool Pop();
 	void Clear();
 	bool IsEmpty();
 	bool IsFull();
 	int GetCount();
 };
 char InputStack(int count);
+class Game
+{
+private:
+	int countWaits = 3;
+	Queue* waits;
+	void FillWaits();
+public:
+	Game(int);
+	~Game();
+	void StartGame();
+	friend ostream& operator << (ostream&, const Game&);
+};
