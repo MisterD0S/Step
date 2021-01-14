@@ -48,74 +48,77 @@ using namespace std;
 //	return st;
 //}
 
-Queue::Queue(int size) : MaxQueueLenght(size), Wait(size > 0 ? new int [size] : NULL)
-{}
-
-Queue::~Queue()
+//Queue::Queue(int size) : MaxQueueLenght(size), Wait(size > 0 ? new int [size] : NULL)
+//{}
+//
+//Queue::~Queue()
+//{
+//	delete[] Wait;
+//}
+//
+//void Queue::Push(int c)
+//{
+//	if (!IsFull())
+//		Wait[QueueLength-1] = c;
+//}
+//
+//bool Queue::Pop()
+//{
+//	if (IsEmpty())
+//		return false;
+//	int value = this -> Wait[0];
+//	for (int i = 1; i < this -> QueueLength - 1; ++i)
+//		this -> Wait[i] = this -> Wait[i + 1];
+//	this -> Wait[QueueLength - 1] = value;
+//	return true;
+//}
+//
+//bool Queue::IsEmpty()
+//{
+//	return QueueLength == 0;
+//}
+//
+//bool Queue::IsFull()
+//{
+//	return QueueLength==MaxQueueLenght;
+//}
+//
+//int Queue::GetCount()
+//{
+//	return QueueLength+1;
+//}
+//
+//void Game::FillWaits()
+//{
+//	for (int i = 0; i < this->countWaits; ++i)
+//	{
+//		int k = 0;
+//		while (!this -> waits[i].IsFull())
+//		{
+//			this->waits[i].Push(k++);
+//		}
+//	}
+//}
+//
+//Game::Game(int count): countWaits(count), waits(new Queue[count])
+//{
+//	FillWaits();
+//}
+//
+//Game::~Game()
+//{
+//	delete[] this->waits;
+//}
+//
+//ostream& operator<<(ostream& out, const Game& game)
+//{
+//	for (int i = 0; i < game.countWaits; ++i)
+//	{
+//		out << game.waits[i] << endl;
+//	}
+//	return out;
+class QueuePriority
 {
-	delete[] Wait;
-}
+private:
 
-void Queue::Push(int c)
-{
-	if (!IsFull())
-		Wait[QueueLength-1] = c;
-}
-
-bool Queue::Pop()
-{
-	if (IsEmpty())
-		return false;
-	int value = this -> Wait[0];
-	for (int i = 1; i < this -> QueueLength - 1; ++i)
-		this -> Wait[i] = this -> Wait[i + 1];
-	this -> Wait[QueueLength - 1] = value;
-	return true;
-}
-
-bool Queue::IsEmpty()
-{
-	return QueueLength == 0;
-}
-
-bool Queue::IsFull()
-{
-	return QueueLength==MaxQueueLenght;
-}
-
-int Queue::GetCount()
-{
-	return QueueLength+1;
-}
-
-void Game::FillWaits()
-{
-	for (int i = 0; i < this->countWaits; ++i)
-	{
-		int k = 0;
-		while (!this -> waits[i].IsFull())
-		{
-			this->waits[i].Push(k++);
-		}
-	}
-}
-
-Game::Game(int count): countWaits(count), waits(new Queue[count])
-{
-	FillWaits();
-}
-
-Game::~Game()
-{
-	delete[] this->waits;
-}
-
-ostream& operator<<(ostream& out, const Game& game)
-{
-	for (int i = 0; i < game.countWaits; ++i)
-	{
-		out << game.waits[i] << endl;
-	}
-	return out;
-
-}
+};
